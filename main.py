@@ -31,7 +31,7 @@ def index():
             db.session.commit()
             return redirect('/')
         except:
-            return 'There was an issue 404'
+            return 'ERROR 404'
     else:
         tasks = Todo.query.order_by(Todo.date_created).all()
         return render_template("index.html", tasks=tasks)
