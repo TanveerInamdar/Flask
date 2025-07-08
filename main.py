@@ -19,10 +19,9 @@ class Todo(db.Model):
     def __repr__(self):
         return f'<Task {self.id}>'
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
-    tasks = Todo.query.order_by(Todo.date_created).all()
-    return render_template('index.html', tasks=tasks)
+    return render_template('index.html')
 
 if __name__ == "__main__":
     with app.app_context():
